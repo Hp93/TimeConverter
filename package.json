@@ -1,0 +1,24 @@
+{
+  "name": "timeconverter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hp93/TimeConverter.git"
+  },
+  "author": "Hp93",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hp93/TimeConverter/issues"
+  },
+  "homepage": "https://github.com/Hp93/TimeConverter#readme",
+  "devDependencies": {
+    "eslint": "^4.7.2",
+    "file-loader": "^0.11.2",
+    "webpack": "^3.6.0"
+  }
+}
