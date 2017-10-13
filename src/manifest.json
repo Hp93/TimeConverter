@@ -2,20 +2,21 @@
   "manifest_version": 2,
   "name": "TimeConverter",
   "version": "1.0",
-  "description": "",
+  "description": "Abc",
   "icons": {
     "48": "icon.png"
   },
-  "content_scripts": [
-    {
-      "matches": [ "*://*.*/*" ],
-      "js": [ "index.js" ],
-      "css": [ ]
-    }
-  ],
+  "content_scripts": [{
+    "matches": ["*://*/*"],
+    "js": ["contentscript.bundle.js"]
+  }],
+  "background": {
+    "scripts": ["backgroundscript.bundle.js"]
+  },
   "applications": {
     "gecko": {
-      "id": "timeconverter@hp93"
+      "id": "timeconverter@hp.vn"
     }
-  }
+  },
+  "permissions": ["contextMenus", "notifications"]
 }
