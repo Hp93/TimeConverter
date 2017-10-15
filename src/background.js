@@ -88,8 +88,14 @@
         return hour + ":" + minute;
     }
 
+    function GetTimeZone(){
+        var custom = /(PST|EDT)/ig;
+        var standard = /(GMT|UTC)/ig;
+    }
+
     function AnalyzeText(input) {
         // detect time
+        var time = GetTime(input);
 
         // detect time zone
 
