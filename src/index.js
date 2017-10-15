@@ -7,16 +7,26 @@
     //     console.log(arguments);
     // });
 
-    window.addEventListener("click", function () {
-        Execute("do something background script!", function (response) {
-            console.log("response:");
-            console.log(response);
-        });
-    });
+    window.addEventListener("mouseup", function () {
+        var selection = window.getSelection().toString();
 
-    function Execute(action, callback) {
+        if (typeof selection !== "string" || !selection) {
+            return;
+        }
+
+        Execute("textSelected", { text: selection }, function (response) {
+            // console.log("response:");
+            // console.log(response);
+        });
+    }, false);
+
+
+    //#region Private
+
+    function Execute(action, dataOrCallback, callback) {
         var sending = browser.runtime.sendMessage({
-            action: action
+            action: action,
+            data: typeof dataOrCallback !== "function" ? dataOrCallback : {}
         });
 
         sending.then(
@@ -24,6 +34,8 @@
                 // success
                 if (typeof callback === "function") {
                     callback(response);
+                } else if (typeof dataOrCallback === "function") {
+                    dataOrCallback(response);
                 }
             },
             function () {
@@ -32,4 +44,6 @@
                 console.log(arguments);
             });
     }
+
+    //#endregion
 })();
